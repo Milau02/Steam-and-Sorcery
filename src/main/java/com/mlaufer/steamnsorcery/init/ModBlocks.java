@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-public class BlockInit {
+public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SteamNSorcery.MODID);
 
     public static final RegistryObject<Block> EXAMPLE_BLOCK = register(
@@ -23,7 +23,7 @@ public class BlockInit {
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> supplier, Item.Properties properties) {
         RegistryObject<T> block = BLOCKS.register(name, supplier);
-        ItemInit.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
         return block;
     }
 }
